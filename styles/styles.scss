@@ -36,4 +36,16 @@ form input, form button {
     border: none;
     background: white;
     font-size: 2rem;
+    outline: none;
+}
+
+form button {
+    color: #ff9a9e;
+    background: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    &:hover {
+        color:white;
+        background: #ff9a9e;
+    }
 }
