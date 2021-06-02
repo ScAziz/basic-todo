@@ -20,6 +20,7 @@ body {
 }
 
 header {
+  margin-bottom: 3rem;
   font-size: 1.5rem;
   color: $fontcolor-primary;
 }
@@ -48,4 +49,29 @@ form button {
         color:white;
         background: #ff9a9e;
     }
+}
+
+.container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3rem;
+}
+
+.todo-list {
+  min-width: 30%;
+  list-style: none;
+}
+
+.todo{ 
+  margin: 0.5rem;
+  background: white;
+  color: black;
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  li {
+    flex: 1;
+  }
 }

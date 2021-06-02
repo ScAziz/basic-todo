@@ -22,3 +22,4 @@ function addTodoItem(event) {
   newDiv.appendChild(deleteButton);
   todoList.appendChild(newDiv);
 }
+
