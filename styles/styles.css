@@ -94,6 +94,10 @@ form button:hover {
           flex: 1;
 }
 
+.todo-item {
+  padding: 0rem 1rem;
+}
+
 .delete-button,
 .complete-button {
   padding: 0.5rem;

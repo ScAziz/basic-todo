@@ -9,7 +9,7 @@ function addTodoItem(event) {
   const newDiv = document.createElement('div');
   newDiv.classList.add('todo');
   const newTodoItem = document.createElement('li');
-  newTodoItem.innerText = 'pls work';
+  newTodoItem.innerText = todoInput.value;
   newTodoItem.classList.add('todo-item');
   newDiv.appendChild(newTodoItem);
   const completedButton = document.createElement('button');
@@ -21,5 +21,6 @@ function addTodoItem(event) {
   deleteButton.classList.add('delete-button');
   newDiv.appendChild(deleteButton);
   todoList.appendChild(newDiv);
+  todoInput.value = '';
 }
 
