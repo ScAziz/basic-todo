@@ -8,6 +8,16 @@ todoList.addEventListener('click', deleteCheck);
 
 document.addEventListener('DOMContentLoaded', getTodos);
 
+function checkLocalStorage() {
+  let todos = null;
+  if (localStorage.getItem('todos') === null) {
+    todos = [];
+  } else {
+    todos = JSON.parse(localStorage.getItem('todos'));
+  }
+  return todos;
+}
+
 function addTodoItem(event) {
   event.preventDefault();
   const newDiv = document.createElement('div');
@@ -56,14 +66,8 @@ function saveLocal(todo) {
 }
 
 function getTodos() {
-  let todos;
-  if (localStorage.getItem('todos') === null) {
-    todos = [];
-  } else {
-    todos = JSON.parse(localStorage.getItem('todos'));
-  }
-
-  todos.forEach((todo) => {
+  checkLocalStorage()
+  .forEach((todo) => {
     const newDiv = document.createElement('div');
     newDiv.classList.add('todo');
     const newTodoItem = document.createElement('li');
@@ -89,6 +93,7 @@ function removeLocal(todo) {
   } else {
     todos = JSON.parse(localStorage.getItem('todos'));
   }
+
   const todoIndex = todo.children[0].innerText;
   todos.splice(todos.indexOf(todoIndex), 1);
   localStorage.setItem('todos', JSON.stringify(todos));
