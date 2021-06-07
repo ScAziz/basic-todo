@@ -74,6 +74,6 @@ function removeLocal(todo) {
 
 todoButton.addEventListener('click', addTodoItem);
 
-todoList.addEventListener('click', deleteCheck);
+todoList.addEventListener('click', deleteOrComplete);
 
 document.addEventListener('DOMContentLoaded', getTodos);
