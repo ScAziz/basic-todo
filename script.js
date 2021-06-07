@@ -2,12 +2,6 @@ const todoInput = document.querySelector('.todo-input');
 const todoButton = document.querySelector('.submit-todo');
 const todoList = document.querySelector('.todo-list');
 
-todoButton.addEventListener('click', addTodoItem);
-
-todoList.addEventListener('click', deleteCheck);
-
-document.addEventListener('DOMContentLoaded', getTodos);
-
 function checkLocalStorage() {
   let todos = null;
   if (localStorage.getItem('todos') === null) {
@@ -43,8 +37,9 @@ function addTodoItem(event) {
   todoInput.value = '';
 }
 
-function deleteCheck(event) {
+function deleteOrComplete(event) {
   const item = event.target;
+  
   if (item.classList[0] === 'delete-button') {
     const todoItem = item.parentElement;
     removeLocal(todoItem);
@@ -76,3 +71,9 @@ function removeLocal(todo) {
   todos.splice(todos.indexOf(todoIndex), 1);
   localStorage.setItem('todos', JSON.stringify(todos));
 }
+
+todoButton.addEventListener('click', addTodoItem);
+
+todoList.addEventListener('click', deleteCheck);
+
+document.addEventListener('DOMContentLoaded', getTodos);
