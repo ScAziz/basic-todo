@@ -54,20 +54,14 @@ function deleteCheck(event) {
 }
 
 function saveLocal(todo) {
-  let todos;
-  if (localStorage.getItem('todos') === null) {
-    todos = [];
-  } else {
-    todos = JSON.parse(localStorage.getItem('todos'));
-  }
-
+  let todos = checkLocalStorage();
   todos.push(todo);
   localStorage.setItem('todos', JSON.stringify(todos));
 }
 
 function getTodos() {
-  checkLocalStorage()
-  .forEach((todo) => {
+  let todos = checkLocalStorage();
+  todos.forEach((todo) => {
     const newDiv = document.createElement('div');
     newDiv.classList.add('todo');
     const newTodoItem = document.createElement('li');
@@ -87,12 +81,7 @@ function getTodos() {
 }
 
 function removeLocal(todo) {
-  let todos;
-  if (localStorage.getItem('todos') === null) {
-    todos = [];
-  } else {
-    todos = JSON.parse(localStorage.getItem('todos'));
-  }
+  let todos = checkLocalStorage();
 
   const todoIndex = todo.children[0].innerText;
   todos.splice(todos.indexOf(todoIndex), 1);
